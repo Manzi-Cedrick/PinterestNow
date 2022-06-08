@@ -1,6 +1,6 @@
 .flex-container-pin{
     display: grid;
-    grid-template-columns: repeat(auto-fill, 300px);
+    grid-template-columns: repeat(auto-fill, 240px);
     gap: 10px;
 }
 .card-grid{
@@ -12,4 +12,10 @@
     background-size: cover;
     grid-row: 1 / -1;
     grid-column: 1;
+}
+.card-grid:hover .card-grid img{
+    background: rgba(0, 0, 0, 0.955);
+}
+.card-grid:hover .lower-section,.card-grid:hover .save-btn{
+    opacity: 1;
 }

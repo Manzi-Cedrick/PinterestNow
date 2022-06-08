@@ -1,8 +1,11 @@
 import React,{useState,useEffect} from 'react'
 import './pic.css';
 import {FaComment} from 'react-icons/fa'
+import './data';
+import Data from './data';
 function Pin() {
-    const [img_obj,setobj] = useState([]);
+    const dummy_data = Data;
+    const [img_obj,setobj] = useState(dummy_data);
     useEffect(() => {
         async function getImageData(){
             const clientID = 'znkQoJ27tsjEq4lux_CqaQ1RU3e3vfDpr8TApPtyfg4';
@@ -19,15 +22,15 @@ function Pin() {
     console.log("Img objects",img_obj);
     return (
     <div className='flex-container-pin grid p-2'>
-    {img_obj.map((imgobject)=>(
-        <div key={imgobject.id} className='card-grid relative overflow-hidden rounded-xl '>
-            <img src={`${imgobject.urls.regular}`} alt="" />
-            <div className='absolute right-2 opacity-0 hover:opacity-100 duration-700 top-2'>
+    {img_obj.map((imgobject,index)=>(
+        <div key={index} className='card-grid relative overflow-hidden rounded-xl '>
+            <img src={`${imgobject.urls.regular}`} alt="" className='h-full w-full' />
+            <div className='absolute right-2 opacity-0 save-btn duration-700 top-2'>
             <button className='btn bg-red-500 drop-shadow text-bold text-white p-3 rounded-full px-8 flex justify-center place-items-center'>Save</button>
             </div>
-            <div className='absolute opacity-0 hover:opacity-100 duration-700 bottom-2 left-2 flex gap-20 justify-between'>
-            <div className='bg-white  rounded-xl '>
-                <a href='/' className='text-underline text-[10px] px-2 decoration-black'>{imgobject.alt_description}</a>
+            <div className='absolute opacity-0 lower-section duration-700 bottom-2 left-2 flex gap-12'>
+            <div className='bg-white flex flex-col justify-center place-items-center rounded-xl '>
+                <a href='/' className='text-underline text-[10px] px-2 decoration-black'>{imgobject.alt_description ? imgobject.alt_description : "www.tiktok.com"}</a>
             </div>
             <div className='flex gap-2'>
             <div className='h-[6vh] w-[6vh] p-3 flex justify-center place-items-center bg-slate-100 hover:cursor-pointer  rounded-full'>

@@ -4,7 +4,7 @@ import Icons from './Icons'
 import Search from './Search'
 function NavBar() {
   return (
-    <div className='Navbar h-[10vh] flex gap-2 w-full bg-white '>
+    <div className='Navbar sticky top-0 z-10 h-[10vh] flex gap-2 w-full bg-white '>
         <div className='h-[4vh] w-[4vh] ml-5 mt-5 rounded-full'>
             <img src={logo} alt="" className='h-full w-full rounded-full' />
         </div>
