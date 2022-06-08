@@ -1,5 +1,15 @@
 .flex-container-pin{
     display: grid;
-    grid-template-columns: repeat(auto-fill,300px);
+    grid-template-columns: repeat(auto-fill, 300px);
     gap: 10px;
+}
+.card-grid{
+  display: grid;
+  grid-template-rows: 10px auto;
+  break-inside: avoid;
+}
+.card-grid img{
+    background-size: cover;
+    grid-row: 1 / -1;
+    grid-column: 1;
 }
