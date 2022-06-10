@@ -4,6 +4,7 @@ import {FaComment} from 'react-icons/fa'
 import './data';
 import Data from './data';
 import CrazyLoader from './CrazyLoader';
+import { Link } from 'react-router-dom';
 function Pin() {
     const dummy_data = Data;
     const [img_obj,setobj] = useState(dummy_data);
@@ -29,6 +30,7 @@ function Pin() {
     <div className='w-full max-w-full  pb-10 mb-10 gap-5 columns-4 px-2 space-y-5'>
     {img_obj.map((imgobject,index)=>(
         <div key={index} className='card-grid relative overflow-hidden rounded-xl '>
+        <Link to='/pin/preview'>
             <img src={`${imgobject.urls.regular}`} alt=""  />
             <div className='absolute right-2 opacity-0 save-btn duration-700 top-2'>
             <button className='btn bg-red-500 drop-shadow text-bold text-white p-3 rounded-full px-8 flex justify-center place-items-center'>Save</button>
@@ -46,9 +48,8 @@ function Pin() {
             </div>
             </div>
             </div>
+        </Link>
         </div>
-            
-            
         ))}
     </div>
     }

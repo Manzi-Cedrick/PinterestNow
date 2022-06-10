@@ -1,6 +1,7 @@
 import React,{useState} from 'react'
 import { FaEllipsisH, FaUpload } from 'react-icons/fa'
 
+
 function PinNew() {
     const [showIcon,setshowIcon] = useState(false);
     const [title,setTitleValue] = useState("");

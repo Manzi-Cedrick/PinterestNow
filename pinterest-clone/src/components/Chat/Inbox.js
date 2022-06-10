@@ -62,7 +62,7 @@ function Inbox(props) {
           className="pl-4 rounded-full mx-2 w-[20vw] py-3 outline-4 border-none focus:outline-blue-500 bg-zinc-100"
           placeholder="Search by name or email"
           onChange={handleMessage}
-        //   value={chosenEmoji.emoji}
+          // value={chosenEmoji.emoji}
         />
         <button type='submit' className='opacity-0'></button>
         </form>
