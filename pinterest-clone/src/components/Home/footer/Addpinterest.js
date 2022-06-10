@@ -1,14 +1,19 @@
 import React,{useState} from 'react'
 import { FaClipboard, FaEdit, FaPlus, FaQuestion } from 'react-icons/fa'
-
+import {Link} from 'react-router-dom';
 function Addpinterest() {
     const [activate,setActivate] = useState(false);
     const [showQuestion,setQuestion]= useState(false);
+    const HighLight=(path)=>{
+        if(window.location.pathname === path) return ' bg-zinc-200';
+        return "";
+    }
   return (
     <>
+        {HighLight()}
         {activate &&
         <ul  className="bg-white-500 fixed bg-white bottom-[8%] right-[5%] text-left overflow-hidden list-style-none rounded-xl w-96 flex flex-col justify-evenly h-24">
-        <li className="text-black text-[14px] font-bold  hover:cursor-pointer hover:bg-stone-100 p-3  text-bold flex "><FaPlus className="mx-2 mt-1"/>Create New Pin</li>
+        <Link to='/addNew'><li className={`text-black text-[14px]  font-bold ${HighLight("/addNew")}  hover:cursor-pointer hover:bg-stone-100 p-3  text-bold flex`}><FaPlus className="mx-2 mt-1"/>Create New Pin</li></Link>
         <li className="text-black text-[14px] font-bold  hover:cursor-pointer hover:bg-stone-100 p-3 text-bold flex "><FaClipboard className="mx-2 mt-1"/>Create New Idea</li>
         </ul>
         }

@@ -3,10 +3,13 @@ import './pic.css';
 import {FaComment} from 'react-icons/fa'
 import './data';
 import Data from './data';
+import CrazyLoader from './CrazyLoader';
 function Pin() {
     const dummy_data = Data;
     const [img_obj,setobj] = useState(dummy_data);
+    const [lazyloader,setLoader] = useState(false)
     useEffect(() => {
+        setLoader(true)
         async function getImageData(){
             const clientID = 'znkQoJ27tsjEq4lux_CqaQ1RU3e3vfDpr8TApPtyfg4';
             const data = await fetch('https://api.unsplash.com/photos',{
@@ -15,16 +18,18 @@ function Pin() {
             }})
             const Data_objects = await data.json();
             setobj(Data_objects);
+            setLoader(false)
             return Data_objects;
         }
         getImageData();
     },[]);
-    console.log("Img objects",img_obj);
     return (
-    <div className='flex-container-pin grid p-2'>
+        <>
+    {lazyloader ? <CrazyLoader/> : 
+    <div className='w-full max-w-full  pb-10 mb-10 gap-5 columns-4 px-2 space-y-5'>
     {img_obj.map((imgobject,index)=>(
         <div key={index} className='card-grid relative overflow-hidden rounded-xl '>
-            <img src={`${imgobject.urls.regular}`} alt="" className='h-full w-full' />
+            <img src={`${imgobject.urls.regular}`} alt=""  />
             <div className='absolute right-2 opacity-0 save-btn duration-700 top-2'>
             <button className='btn bg-red-500 drop-shadow text-bold text-white p-3 rounded-full px-8 flex justify-center place-items-center'>Save</button>
             </div>
@@ -42,8 +47,12 @@ function Pin() {
             </div>
             </div>
         </div>
+            
+            
         ))}
     </div>
+    }
+    </>
   )
 }
 
