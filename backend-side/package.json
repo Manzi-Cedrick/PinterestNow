@@ -1,0 +1,36 @@
+{
+  "name": "social-media-server-side",
+  "version": "1.0.0",
+  "description": "This is a whole backend package for social media apps feel free to use",
+  "main": "server.js",
+  "scripts": {
+    "dev": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Manzi-Cedrick/PinterestNow.git"
+  },
+  "keywords": [
+    "social-media",
+    "backend",
+    "app",
+    "media-app"
+  ],
+  "author": "Manzi Cedrick",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Manzi-Cedrick/PinterestNow/issues"
+  },
+  "homepage": "https://github.com/Manzi-Cedrick/PinterestNow#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.20.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "jsonwebtoken": "^8.5.1",
+    "lodash": "^4.17.21",
+    "mongoose": "^6.3.6",
+    "nodemon": "^2.0.16"
+  }
+}
