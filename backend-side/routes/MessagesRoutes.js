@@ -1,1 +1,1 @@
-//the chat sh
+//the chat
