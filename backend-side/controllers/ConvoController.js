@@ -5,7 +5,7 @@ const ChatConvo = require('../models/ConvoModel');
 const CreateConvo = async (req, res) => {
     const newConvo = new ChatConvo({
         convoName: req.body.convoName,
-        members: [req.user.Id, req.body.receiverId]
+        members: [req.user.id, req.body.receiverId]
     })
     try {
         const finalsavedChat = await newConvo.save();
@@ -18,7 +18,7 @@ const CreateConvo = async (req, res) => {
 const GetConvo = async (req, res) => {
     try {
         const convoGet = await ChatConvo.find({
-            members: { $in: req.params.userId }
+            members: { $in: req.user.id }
         })
         res.status(200).json({ success: "ok", message: convoGet })
     } catch (error) {
@@ -27,8 +27,8 @@ const GetConvo = async (req, res) => {
     }
 }
 const UpdateConvo = async (req, res) => {
-    const updatedConvo = new ChatConvo.findByIdandUpdate(req.params.conversationId, {
-        chatName: req.body.chatName
+    const updatedConvo = new ChatConvo.findByIdAndUpdate(req.params.conversationId, {
+        convoName : req.body.newConvoName
     }, { new: true });
     try {
         const updateChatConvo = await updatedConvo.save();
