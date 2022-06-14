@@ -5,7 +5,7 @@ const ChatConvo = require('../models/ConvoModel');
 const CreateConvo = async (req, res) => {
     const newConvo = new ChatConvo({
         convoName: req.body.convoName,
-        members: [req.body.senderId, req.body.receiverId]
+        members: [req.user.Id, req.body.receiverId]
     })
     try {
         const finalsavedChat = await newConvo.save();

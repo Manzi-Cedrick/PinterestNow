@@ -35,9 +35,21 @@ const LoginNow = async (req,res) =>{
             res.send('password wrong');
         }
         const user_token = await jwt.sign({id:check_User.id},process.env.secret_key,{expiresIn: '24h'});
-        res.status(200).json({success : "ok",content: check_User})
+        res.status(200).json({success : "ok",content: check_User ,token : user_token})
     }catch(error){
         res.status(400)
+        throw new Error(error.message);
+    }
+}
+const ResetPassword = async (req, res) => {
+    try {
+        const check_User = await User.findOne({email: req.body.email});
+        if(!check_User){
+            res.status(400);
+            res.send("User does not exist");
+        }
+    }catch(error){
+        res.status(400);
         throw new Error(error.message);
     }
 }

@@ -1,8 +1,8 @@
 const mongoose = require('mongoose');
 const PinSchema = mongoose.Schema({
     user_pin_maker: { type: mongoose.Schema.Types.ObjectId , ref : 'User' },
-    link:{type:String ,required:true},
-    title:{type:String,required:true},
+    link:{type:String},
+    title:{type:String},
     description:{type:String},
     dominant_color:{type:String},
     alt_text:{type:String},
