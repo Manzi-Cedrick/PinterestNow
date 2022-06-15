@@ -1,19 +1,21 @@
 const express = require("express");
 const PinData = require("../models/PinModel");
 const lodash = require("lodash");
+const axios = require("axios")
+const fetch = require("node-fetch");
 const AddNewPin = async (req, res) => {
   try {
-    const objbody =req.body;
-    console.log(objbody);
+    const objbody = req.body
     const NewPin = await PinData.create({
+      _id: objbody.id,
       user_pin_maker : req.user.id,
-      link : objbody.link,
+      link: objbody.link,
       title : objbody.title,
       description : objbody.description,
-      dominant_color : objbody.dominant_color,
-      alt_text : objbody.alt_text,
+      dominant_color : objbody.dominant_color || objbody.color,
+      alt_text : objbody.alt_description,
       board_id : objbody.board_id,
-      media_source : [objbody.source_type,objbody.content_type,objbody.data]
+      likes:objbody.likes 
     });
     const finalSavedPin = await NewPin.save();
     res.json({ success: "ok", addedPin: finalSavedPin });
@@ -61,7 +63,7 @@ const deletePin = async (req, res) => {
 const UpdatePin = async (req, res) => {
   try {
     const [link, description] = req.body;
-    const pin_update = await PinData.findByIdandUpdate(
+    const pin_update = await PinData.findByIdAndUpdate(
       req.params.pin_id,
       { link: link, description: description },
       { new: true }

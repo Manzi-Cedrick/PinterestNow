@@ -53,4 +53,18 @@ const ResetPassword = async (req, res) => {
         throw new Error(error.message);
     }
 }
+const SearchUser = async (req,res)=>{
+    try{
+        // const 
+        const keyword = req.query.search ? {
+            $or :[
+                {name:{$regex: req.query.search , $options:"i"}}, 
+                {email:{$regex: req.query.search , $options:"i"}}, 
+            ]
+        } : {};
+    }catch(error){
+        res.status(400);
+        throw new Error(error.message)
+    }
+}
 module.exports = {Register,LoginNow}

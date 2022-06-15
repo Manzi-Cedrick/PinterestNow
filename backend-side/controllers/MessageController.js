@@ -3,7 +3,11 @@ const lodash = require('lodash');
 const Messages = require('../models/MessageModel');
 
 const AddNewMessage = async (req, res)=>{
-    const newMessage = new Messages(req.body);
+    const newMessage = await Messages.create({
+        chatConvoId : req.body.chatConvoId,
+        sender : req.user.id,
+        content : req.body.content
+    });
     try{
         const finalMessage = await newMessage.save();
         res.status(200).json({success : "ok" , message : finalMessage});
@@ -16,8 +20,7 @@ const AddNewMessage = async (req, res)=>{
 const GetMessage = async (req, res)=>{
     try{
         const MessagesAll = await Messages.find({chatConvoId : req.params.chatConvoId})
-        const MessagesRetrieve = await MessagesAll.save();
-        res.status(200).json({success : "ok" , message : MessagesRetrieve});
+        res.status(200).json({success : "ok" , message : MessagesAll});
     }catch(error){
         res.status(400).send("Messages retrieving failed");
         throw new Error(error.message);

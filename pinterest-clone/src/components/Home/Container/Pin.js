@@ -12,13 +12,12 @@ function Pin() {
     useEffect(() => {
         setLoader(true)
         async function getImageData(){
+            const imageCount = 20;
             const clientID = 'znkQoJ27tsjEq4lux_CqaQ1RU3e3vfDpr8TApPtyfg4';
-            const data = await fetch('https://api.unsplash.com/photos',{
-            headers:{
-                Authorization:`Client-ID ${clientID}` 
-            }})
+            const data = await fetch(`https://api.unsplash.com/photos/random/?client_id=${clientID}&count=${imageCount}`)
             const Data_objects = await data.json();
             setobj(Data_objects);
+            console.log(img_obj);
             setLoader(false)
             return Data_objects;
         }
@@ -27,7 +26,7 @@ function Pin() {
     return (
         <>
     {lazyloader ? <CrazyLoader/> : 
-    <div className='w-full max-w-full  pb-10 mb-10 gap-5 columns-4 px-2 space-y-5'>
+    <div className='w-full max-w-full mt-  pb-10 mb-10 gap-5 columns-4 px-2 space-y-5'>
     {img_obj.map((imgobject,index)=>(
         <div key={index} className='card-grid relative overflow-hidden rounded-xl '>
         <Link to='/pin/preview'>
