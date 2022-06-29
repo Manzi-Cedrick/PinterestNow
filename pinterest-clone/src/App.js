@@ -4,6 +4,7 @@ import {BrowserRouter,Routes,Route} from 'react-router-dom'
 import CreateNewPin from './components/AddPin/CreateNewPin';
 import Account from './components/Profile/Account';
 import Preview from './components/Home/Container/componentEach/Preview';
+import SignUp from './components/Auth/SignUp';
 function App() {
   return (
     <div className="App">
@@ -13,7 +14,8 @@ function App() {
         <Route path='/addNew' element={<CreateNewPin/>}></Route>
         <Route path='/profile' element={<Account/>}/>
         <Route path='/pin/preview' element={<Preview/>}/>
-      </Routes>
+        <Route path='/signup' element={<SignUp/>}/>
+      </Routes> 
       </BrowserRouter>
     </div>
   );
