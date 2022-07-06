@@ -48,6 +48,7 @@ function Login() {
       <label className="font-semibold">password</label>
       <input type="password" className="p-4 drop-shadow-sm bg-slate-50 outline-violet-500 border-none outline-2" value={password} onClick={handlePassword} placeholder="Enter your password"/>
       </div>
+      <p className="float-left text-[10px]">Forgot Password ? <Link to='/changepassword' className="text-violet-500">Change password</Link></p>
       <p className="float-right text-[10px]">Don't have account ? <Link to='/signup' className="text-red-500">Signup</Link></p>
       <div className="mt-10">
       <button type="submit" className="hover:bg-white hover:text-red-500 border-solid border-red-500 hover:rounded-lg border-2 duration-700  p-5 bg-red-600 w-full h-full px-20 flex justify-center gap-2 text-white font-bold">
