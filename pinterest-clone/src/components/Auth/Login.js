@@ -1,13 +1,13 @@
 import React,{useState} from 'react'
 // import axios from 'axios';
 // import { AppContextResume } from '../../AppContext';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link} from 'react-router-dom';
 import { FaFacebook, FaGooglePlay, FaInstagram, FaPinterest } from 'react-icons/fa';
 function Login() {
   const [email, setEmail] = useState()
   const [password, setPassword] = useState()
   // const {userToken,setUserToken} = AppContextResume()
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const handleEmail = (event) => {
     setEmail(event.target.value)
   }
@@ -42,7 +42,7 @@ function Login() {
       <form onSubmit={FormDataSubmission}>
       <div className="flex flex-col gap-2 text-left">
       <label className="font-semibold">email</label>
-      <input type="email" className="p-4 drop-shadow-sm bg-slate-50 outline-violet-500 border-none outline-2" value={email} onClick={handleEmail} placeholder="Enter your email"/>
+      <input type="text" className="p-4 drop-shadow-sm bg-slate-50 outline-violet-500 border-none outline-2" value={email} onClick={handleEmail} placeholder="Enter your email"/>
       </div>
       <div className="flex flex-col gap-2 text-left">
       <label className="font-semibold">password</label>
@@ -50,7 +50,7 @@ function Login() {
       </div>
       <p className="float-right text-[10px]">Don't have account ? <Link to='/signup' className="text-red-500">Signup</Link></p>
       <div className="mt-10">
-      <button className="hover:bg-white hover:text-red-500 border-solid border-red-500 hover:rounded-lg border-2 duration-700  p-5 bg-red-600 w-full h-full px-20 flex justify-center gap-2 text-white font-bold">
+      <button type="submit" className="hover:bg-white hover:text-red-500 border-solid border-red-500 hover:rounded-lg border-2 duration-700  p-5 bg-red-600 w-full h-full px-20 flex justify-center gap-2 text-white font-bold">
         <FaPinterest className='mt-1'/>Login
       </button>
       </div>
