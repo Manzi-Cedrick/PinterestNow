@@ -4,8 +4,8 @@ import React,{useState} from 'react'
 import { Link} from 'react-router-dom';
 import { FaFacebook, FaGooglePlay, FaInstagram, FaPinterest } from 'react-icons/fa';
 function Login() {
-  const [email, setEmail] = useState()
-  const [password, setPassword] = useState()
+  const [email, setEmail] = useState("")
+  const [password, setPassword] = useState("")
   // const {userToken,setUserToken} = AppContextResume()
   // const navigate = useNavigate();
   const handleEmail = (event) => {
@@ -42,11 +42,11 @@ function Login() {
       <form onSubmit={FormDataSubmission}>
       <div className="flex flex-col gap-2 text-left">
       <label className="font-semibold">email</label>
-      <input type="text" className="p-4 drop-shadow-sm bg-slate-50 outline-violet-500 border-none outline-2" value={email} onClick={handleEmail} placeholder="Enter your email"/>
+      <input type="text" className="p-4 drop-shadow-sm bg-slate-50 outline-violet-500 border-none outline-2" value={email} onChange={handleEmail} placeholder="Enter your email"/>
       </div>
       <div className="flex flex-col gap-2 text-left">
       <label className="font-semibold">password</label>
-      <input type="password" className="p-4 drop-shadow-sm bg-slate-50 outline-violet-500 border-none outline-2" value={password} onClick={handlePassword} placeholder="Enter your password"/>
+      <input type="password" className="p-4 drop-shadow-sm bg-slate-50 outline-violet-500 border-none outline-2" value={password} onChange={handlePassword} placeholder="Enter your password"/>
       </div>
       <p className="float-left text-[10px]">Forgot Password ? <Link to='/changepassword' className="text-violet-500">Change password</Link></p>
       <p className="float-right text-[10px]">Don't have account ? <Link to='/signup' className="text-red-500">Signup</Link></p>

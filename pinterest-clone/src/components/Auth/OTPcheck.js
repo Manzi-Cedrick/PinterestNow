@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import { Link } from 'react-router-dom';
 import { FaFacebook, FaInstagram, FaPinterest } from 'react-icons/fa';
 function OTPcheck() {
-  const [otp, setOtp] = useState()
+  const [otp, setOtp] = useState("")
   // const {userToken,setUserToken} = AppContextResume()
 //   const navigate = useNavigate();
   const handleOTP = (event) => {
@@ -31,13 +31,13 @@ function OTPcheck() {
       <div className="bg-white relative px-20 drop-shadow-sm h-screen w-full md:m-auto md:w-[80vw] md:px-10">     
       <div className="text-center pt-2 pb-12">
         <i><FaPinterest className="text-[8em] m-auto "/></i>
-        <p>Welcome at Pinterest Community <p className="text-[10px]"> Welcome Now at pinterest connection. Establish</p> </p>
+        <p>Welcome at Pinterest Community </p> <p className="text-[10px]"> Welcome Now at pinterest connection. Establish</p>
       </div>
       <form onSubmit={FormDataSubmission}>
       <p className="font-bold">Please Enter the OTP send to your email</p>
       <div className="flex flex-col gap-2 text-left">
       <label className="font-semibold">OTP</label>
-      <input type="text" className="p-4 drop-shadow-sm bg-slate-50 outline-violet-500 border-none outline-2" value={otp} onClick={handleOTP} placeholder="OTP"/>
+      <input type="text" className="p-4 drop-shadow-sm bg-slate-50 outline-violet-500 border-none outline-2" value={otp} onChange={handleOTP} placeholder="OTP"/>
       </div>
       <p className="float-right text-[10px]">Didn't receive code ? <Link to='/changepassword' className="text-red-500">Resend Code</Link></p>
       <div className="mt-10">
