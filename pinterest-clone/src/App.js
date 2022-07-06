@@ -6,6 +6,7 @@ import Account from './components/Profile/Account';
 import Preview from './components/Home/Container/componentEach/Preview';
 import SignUp from './components/Auth/SignUp';
 import Login from './components/Auth/Login';
+import ChangePass from './components/Auth/ChangePass';
 function App() {
   return (
     <div className="App">
@@ -17,6 +18,7 @@ function App() {
         <Route path='/pin/preview' element={<Preview/>}/>
         <Route path='/signup' element={<SignUp/>}/>
         <Route path='/login' element={<Login/>}/>
+        <Route path='/changepassword' element={<ChangePass/>}/>
       </Routes> 
       </BrowserRouter>
     </div>
