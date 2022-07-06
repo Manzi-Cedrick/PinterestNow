@@ -1,12 +1,12 @@
 import React,{useState} from 'react'
 import { FaGooglePlay, FaPinterest } from 'react-icons/fa';
 // import axios from 'axios';
-import {  Link, useNavigate } from 'react-router-dom';
+import {  Link } from 'react-router-dom';
 function SignUp() {
   const [username, setUsername] = useState()
   const [email, setEmail] = useState()
   const [password, setPassword] = useState()
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const handleUser = (event) => {
     setUsername(event.target.value)
   }
@@ -57,7 +57,7 @@ function SignUp() {
       </div>
       <p className="float-right text-[10px]">Already have account ? <Link to='/login' className="text-red-500">Login Now</Link></p>
       <div className="mt-10">
-      <button className="hover:bg-white hover:text-red-500 border-solid border-red-500 hover:rounded-lg border-2 duration-700  p-5 bg-red-600 w-full h-full px-20 flex justify-center gap-2 text-white font-bold">
+      <button type="submit" className="hover:bg-white hover:text-red-500 border-solid border-red-500 hover:rounded-lg border-2 duration-700  p-5 bg-red-600 w-full h-full px-20 flex justify-center gap-2 text-white font-bold">
         <FaPinterest className='mt-1'/>Signup
       </button>
       </div>
