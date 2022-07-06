@@ -1,18 +1,14 @@
 import React,{useState} from 'react'
 // import axios from 'axios';
 // import { AppContextResume } from '../../AppContext';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { FaFacebook, FaInstagram, FaPinterest } from 'react-icons/fa';
 function ChangePass() {
   const [email, setEmail] = useState()
-  const [password, setPassword] = useState()
   // const {userToken,setUserToken} = AppContextResume()
-  const navigate = useNavigate();
+//   const navigate = useNavigate();
   const handleEmail = (event) => {
     setEmail(event.target.value)
-  }
-  const handlePassword = (event) => {
-    setPassword(event.target.value);
   }
   const FormDataSubmission = (event) => {
     event.preventDefault()
@@ -28,7 +24,6 @@ function ChangePass() {
     //   if (userToken) return navigate('/home');
     // }
     // PostData();
-    setPassword('')
     setEmail('')
   }
   return (
@@ -48,7 +43,7 @@ function ChangePass() {
       
       <p className="float-right text-[10px]">Don't have account ? <Link to='/signup' className="text-red-500">Signup</Link></p>
       <div className="mt-10">
-      <button className="hover:bg-white hover:text-red-500 border-solid border-red-500 hover:rounded-lg border-2 duration-700  p-5 bg-red-600 w-full h-full px-20 flex justify-center gap-2 text-white font-bold">
+      <button type="submit" className="hover:bg-white hover:text-red-500 border-solid border-red-500 hover:rounded-lg border-2 duration-700  p-5 bg-red-600 w-full h-full px-20 flex justify-center gap-2 text-white font-bold">
         <FaPinterest className='mt-1'/>Generate OTP
       </button>
       </div>
