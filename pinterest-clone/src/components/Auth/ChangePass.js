@@ -2,8 +2,8 @@ import React,{useState} from 'react'
 // import axios from 'axios';
 // import { AppContextResume } from '../../AppContext';
 import { Link, useNavigate } from 'react-router-dom';
-import { FaFacebook, FaGooglePlay, FaInstagram, FaPinterest } from 'react-icons/fa';
-function Login() {
+import { FaFacebook, FaInstagram, FaPinterest } from 'react-icons/fa';
+function ChangePass() {
   const [email, setEmail] = useState()
   const [password, setPassword] = useState()
   // const {userToken,setUserToken} = AppContextResume()
@@ -67,4 +67,4 @@ function Login() {
   )
 }
 
-export default Login
+export default ChangePass
