@@ -3,12 +3,10 @@ const lodash = require('lodash');
 const ChatConvo = require('../models/ConvoModel');
 //create new conversation
 const CreateConvo = async (req, res) => {
-    const newConvo = new ChatConvo({
+    const newConvo = await ChatConvo.create({
         convoName: req.body.convoName,
-        $and: [
-            {members : {$ele}}
-        ]
-    })
+        members: [req.body.receiverId,req.user.id]
+    });
     try {
         const finalsavedChat = await newConvo.save();
         res.status(200).json({ success: "ok", message: finalsavedChat })
@@ -20,7 +18,9 @@ const CreateConvo = async (req, res) => {
 const GetConvo = async (req, res) => {
     try {
         const convoGet = await ChatConvo.find({
-            members: { $in: req.user.id }
+            $and: [
+                {members : {$elemMatch : {$eq : req.user.id}}}
+            ]
         })
         res.status(200).json({ success: "ok", message: convoGet })
     } catch (error) {
