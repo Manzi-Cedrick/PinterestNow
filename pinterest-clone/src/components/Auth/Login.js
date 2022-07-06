@@ -37,7 +37,7 @@ function Login() {
       <div className="bg-white relative px-20 drop-shadow-sm h-screen w-full md:m-auto md:w-[80vw] md:px-10">     
       <div className="text-center pt-2 pb-12">
         <i><FaPinterest className="text-[8em] m-auto "/></i>
-        <p>Welcome at Pinterest Community <p className="text-[10px]"> Welcome Now at pinterest connection. Establish</p> </p>
+        <p>Welcome at Pinterest Community </p> <p className="text-[10px]"> Welcome Now at pinterest connection. Establish</p> 
       </div>
       <form onSubmit={FormDataSubmission}>
       <div className="flex flex-col gap-2 text-left">
