@@ -7,6 +7,7 @@ import Preview from './components/Home/Container/componentEach/Preview';
 import SignUp from './components/Auth/SignUp';
 import Login from './components/Auth/Login';
 import ChangePass from './components/Auth/ChangePass';
+import OTPcheck from './components/Auth/OTPcheck';
 function App() {
   return (
     <div className="App">
@@ -19,6 +20,7 @@ function App() {
         <Route path='/signup' element={<SignUp/>}/>
         <Route path='/login' element={<Login/>}/>
         <Route path='/changepassword' element={<ChangePass/>}/>
+        <Route path='/otppreset' element={<OTPcheck/>}/>
       </Routes> 
       </BrowserRouter>
     </div>
