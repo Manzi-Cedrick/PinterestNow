@@ -1,7 +1,7 @@
 import React,{useState} from 'react'
 import { FaGooglePlay, FaPinterest } from 'react-icons/fa';
 // import axios from 'axios';
-import {  useNavigate } from 'react-router-dom';
+import {  Link, useNavigate } from 'react-router-dom';
 function SignUp() {
   const [username, setUsername] = useState()
   const [email, setEmail] = useState()
@@ -55,6 +55,7 @@ function SignUp() {
       <label className="font-semibold">password</label>
       <input type="password" className="p-4 drop-shadow-sm bg-slate-50 outline-violet-500 border-none outline-2" value={password} onClick={handlePassword} placeholder="Enter your password"/>
       </div>
+      <p className="float-right text-[10px]">Already have account ? <Link to='/logins' className="text-red-500">Login Now</Link></p>
       <div className="mt-10">
       <button className="hover:bg-white hover:text-red-500 border-solid border-red-500 hover:rounded-lg border-2 duration-700  p-5 bg-red-600 w-full h-full px-20 flex justify-center gap-2 text-white font-bold">
         <FaPinterest className='mt-1'/>Signup
