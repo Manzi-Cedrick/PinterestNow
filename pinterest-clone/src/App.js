@@ -16,7 +16,7 @@ function App() {
         <Route path='/profile' element={<Account/>}/>
         <Route path='/pin/preview' element={<Preview/>}/>
         <Route path='/signup' element={<SignUp/>}/>
-        <Route path='/logins' element={<Login/>}/>
+        <Route path='/login' element={<Login/>}/>
       </Routes> 
       </BrowserRouter>
     </div>
