@@ -40,29 +40,19 @@ function Login() {
         <p>Welcome at Pinterest Community <p className="text-[10px]"> Welcome Now at pinterest connection. Establish</p> </p>
       </div>
       <form onSubmit={FormDataSubmission}>
+      <p className="font-bold">Forgot your password feel in your email for the verification code send!! </p>
       <div className="flex flex-col gap-2 text-left">
       <label className="font-semibold">email</label>
       <input type="email" className="p-4 drop-shadow-sm bg-slate-50 outline-violet-500 border-none outline-2" value={email} onClick={handleEmail} placeholder="Enter your email"/>
       </div>
-      <div className="flex flex-col gap-2 text-left">
-      <label className="font-semibold">password</label>
-      <input type="password" className="p-4 drop-shadow-sm bg-slate-50 outline-violet-500 border-none outline-2" value={password} onClick={handlePassword} placeholder="Enter your password"/>
-      </div>
+      
       <p className="float-right text-[10px]">Don't have account ? <Link to='/signup' className="text-red-500">Signup</Link></p>
       <div className="mt-10">
       <button className="hover:bg-white hover:text-red-500 border-solid border-red-500 hover:rounded-lg border-2 duration-700  p-5 bg-red-600 w-full h-full px-20 flex justify-center gap-2 text-white font-bold">
-        <FaPinterest className='mt-1'/>Login
+        <FaPinterest className='mt-1'/>Generate OTP
       </button>
       </div>
       </form>
-      <div className="text-center text-[#0000004a]">
-        <span>-or-</span>
-      </div>
-      <div>
-      <button className="p-5 border-green-600 border-solid border-2 w-full h-full px-20 flex justify-center gap-2 text-green-500 font-bold">
-        <FaGooglePlay className='text-yellow-500 mt-1'/>Login with Google
-      </button>
-      </div>
       <div className="flex left-44 absolute bottom-0  flex-col justify-center">
         <div className="flex gap-4">
             <p className="text-[12px]">Connect with: </p>
