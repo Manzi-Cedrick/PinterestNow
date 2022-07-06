@@ -1,6 +1,6 @@
 import React,{useState} from 'react'
 import { FaEllipsisH, FaUpload } from 'react-icons/fa'
-import axios from 'axios'
+// import axios from 'axios'
 function PinNew() {
     const [showIcon,setshowIcon] = useState(false);
     const [title,setTitleValue] = useState("");
@@ -17,20 +17,20 @@ function PinNew() {
     }
     const handleSubmit = (e) =>{
       e.preventDefault();
-      const PostPin = async () =>{
-        const result = await axios.post('http://localhost:8080/v1/board/pin/addNewPin',{
-          headers: {
-            'Content-Type': 'application/json',
-            Authorization: 'Bearer '+ token
-          },
-          body: JSON.stringify({
-            title: title,
-            links: link,
-            description: textArea
-          })
-        })
-        console.log(result.json())
-      }
+      // const PostPin = async () =>{
+      //   const result = await axios.post('http://localhost:8080/v1/board/pin/addNewPin',{
+      //     headers: {
+      //       'Content-Type': 'application/json',
+      //       Authorization: 'Bearer '+ token
+      //     },
+      //     body: JSON.stringify({
+      //       title: title,
+      //       links: link,
+      //       description: textArea
+      //     })
+      //   })
+      //   console.log(result.json())
+      // }
       setAreaValue('')
       setTitleValue('')
       setLinks('')
