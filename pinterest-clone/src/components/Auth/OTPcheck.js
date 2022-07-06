@@ -1,17 +1,13 @@
 import React, { useState } from 'react'
 
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { FaFacebook, FaInstagram, FaPinterest } from 'react-icons/fa';
 function OTPcheck() {
-  const [email, setEmail] = useState()
-  const [password, setPassword] = useState()
+  const [otp, setOtp] = useState()
   // const {userToken,setUserToken} = AppContextResume()
-  const navigate = useNavigate();
-  const handleEmail = (event) => {
-    setEmail(event.target.value)
-  }
-  const handlePassword = (event) => {
-    setPassword(event.target.value);
+//   const navigate = useNavigate();
+  const handleOTP = (event) => {
+    setOtp(event.target.value)
   }
   const FormDataSubmission = (event) => {
     event.preventDefault()
@@ -27,8 +23,7 @@ function OTPcheck() {
     //   if (userToken) return navigate('/home');
     // }
     // PostData();
-    setPassword('')
-    setEmail('')
+    setOtp('')
   }
   return (
     <div className="h-screen w-screen">
@@ -42,12 +37,11 @@ function OTPcheck() {
       <p className="font-bold">Please Enter the OTP send to your email</p>
       <div className="flex flex-col gap-2 text-left">
       <label className="font-semibold">OTP</label>
-      <input type="text" className="p-4 drop-shadow-sm bg-slate-50 outline-violet-500 border-none outline-2" value={email} onClick={handleEmail} placeholder="OTP"/>
+      <input type="text" className="p-4 drop-shadow-sm bg-slate-50 outline-violet-500 border-none outline-2" value={otp} onClick={handleOTP} placeholder="OTP"/>
       </div>
-      
       <p className="float-right text-[10px]">Didn't receive code ? <Link to='/changepassword' className="text-red-500">Resend Code</Link></p>
       <div className="mt-10">
-      <button className="hover:bg-white hover:text-red-500 border-solid border-red-500 hover:rounded-lg border-2 duration-700  p-5 bg-red-600 w-full h-full px-20 flex justify-center gap-2 text-white font-bold">
+      <button type="submit" className="hover:bg-white hover:text-red-500 border-solid border-red-500 hover:rounded-lg border-2 duration-700  p-5 bg-red-600 w-full h-full px-20 flex justify-center gap-2 text-white font-bold">
         <FaPinterest className='mt-1'/>Verify OTP
       </button>
       </div>
