@@ -5,6 +5,7 @@ import CreateNewPin from './components/AddPin/CreateNewPin';
 import Account from './components/Profile/Account';
 import Preview from './components/Home/Container/componentEach/Preview';
 import SignUp from './components/Auth/SignUp';
+import Login from './components/Auth/Login';
 function App() {
   return (
     <div className="App">
@@ -15,6 +16,7 @@ function App() {
         <Route path='/profile' element={<Account/>}/>
         <Route path='/pin/preview' element={<Preview/>}/>
         <Route path='/signup' element={<SignUp/>}/>
+        <Route path='/logins' element={<Login/>}/>
       </Routes> 
       </BrowserRouter>
     </div>
