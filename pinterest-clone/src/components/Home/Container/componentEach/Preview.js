@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import NavBar from "../../NavBar";
-import { FaDownload, FaEllipsisH, FaUpload } from "react-icons/fa";
-import { FaAngleLeft, FaHeart, FaPinterest } from "react-icons/fa";
+import { FaDownload, FaEllipsisH, FaHeart, FaPinterest } from "react-icons/fa";
 import Picker, { SKIN_TONE_MEDIUM_DARK } from "emoji-picker-react";
 
 function Preview() {
