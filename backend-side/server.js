@@ -15,7 +15,7 @@ app.use('/v1/auth/user',AuthRoutes);
 app.use('/v1/board/pin',PinRouter);
 app.use('/v1/convo/chat',ConvoRoute);
 app.use('/v1/convo/message',MessageRoute);
-const port = process.env.PORT || 8080;
+const port = process.env.PORT || 8080 ;
 app.listen(process.env.PORT,()=>{
     console.log(`listening on port accessible ${port}`)
 })

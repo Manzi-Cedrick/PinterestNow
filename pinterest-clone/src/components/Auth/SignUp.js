@@ -18,9 +18,9 @@ function SignUp() {
   }
   const FormDataSubmission = (event) => {
     event.preventDefault()
-    const PostData = async () => {
+    const PostData = async ( ) => {
       try {
-        const result = await fetch('http://localhost:8080/v1/auth/user/signUp',{
+        const result = await fetch('http://localhost:3500/v1/auth/user/signUp',{
           method : 'POST',
           headers:{
             'Content-Type':'application/json'
