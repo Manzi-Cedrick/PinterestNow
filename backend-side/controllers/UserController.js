@@ -16,7 +16,7 @@ const Register = async (req,res)=>{
     let hashpassword = await HashPassword(user_register.password);
     user_register.password = hashpassword;
     const finalUser = await user_register.save();
-    res.status(200).json({success:"ok",register: finalUser});
+    res.status(200).send({success:"ok",register: finalUser});
 }catch(error){
     res.status(400);
     throw new Error(error.message);
@@ -67,4 +67,4 @@ const SearchUser = async (req,res)=>{
         throw new Error(error.message)
     }
 }
-module.exports = {Register,LoginNow}
+module.exports = {Register,LoginNow,ResetPassword,SearchUser}
