@@ -1,6 +1,7 @@
 import React,{useState} from 'react'
 // import axios from 'axios';
 // import { AppContextResume } from '../../AppContext';
+import Cookies from 'js-cookie'
 import { Link,useNavigate} from 'react-router-dom';
 import { FaFacebook, FaGooglePlay, FaInstagram, FaPinterest } from 'react-icons/fa';
 function Login() {
@@ -31,7 +32,7 @@ function Login() {
           })
         })
         const data = await result.json();
-        console.log("The Data is:", data);
+        await Cookies.set("TokenData",data.token);
         if (data.token) return navigate('/');
       } catch (error) {
         console.log("The Error", error)
