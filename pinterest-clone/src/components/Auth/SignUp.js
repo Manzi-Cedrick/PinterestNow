@@ -18,6 +18,9 @@ function SignUp() {
   }
   const FormDataSubmission = (event) => {
     event.preventDefault()
+    console.log(username)
+    console.log(email)
+    console.log(password)
     const PostData = async ( ) => {
       try {
         const result = await fetch('http://localhost:3500/v1/auth/user/signUp',{
@@ -44,25 +47,25 @@ function SignUp() {
     setEmail('')
   }
   return (
-    <div className="h-screen w-screen">
-      <img src="" alt="" />
-      <div className="bg-white px-20 drop-shadow-sm h-screen w-full md:m-auto md:w-[80vw] md:px-10">
-        <div className="text-center pt-2 pb-12">
-          <i><FaPinterest className="text-[8em] m-auto " /></i>
+    <div className="h-screen w-screen overflow-auto ">
+      <img src="https://wallpaperaccess.com/full/339387.jpg" alt="" className="lg:max-h-full lg:max-w-full w-full h-full fixed top-0 bottom-0 left-0 right-0" />
+      <div className="bg-white lg:rounded-lg px-20 drop-shadow-sm h-screen lg:max-h-[90vh] m-auto  lg:float-right lg:m-5 lg:max-w-[30vw] md:px-10">
+        <div className="text-center pt-2 md:pb-8 pb-12">
+          <i><FaPinterest className="text-[8em] md:text-[6em] m-auto " /></i>
           <p>Welcome at Pinterest Community </p>  <p className="text-[10px]"> Welcome Now at pinterest connection. Establish</p>
         </div>
         <form onSubmit={FormDataSubmission}>
           <div className="flex flex-col gap-2 text-left">
-            <label className="font-semibold">username</label>
-            <input type="text" className="p-4 drop-shadow-sm bg-slate-50 outline-violet-500 border-none outline-2" value={username} onChange={handleUser} placeholder="Enter your Name" />
+            <label className="font-semibold lg:text-[12px]">username</label>
+            <input type="text" className="p-4 lg:p-3 drop-shadow-sm bg-slate-50 outline-violet-500 border-none outline-2" value={username} onChange={handleUser} placeholder="Enter your Name" />
           </div>
           <div className="flex flex-col gap-2 text-left">
-            <label className="font-semibold">email</label>
-            <input type="email" className="p-4 drop-shadow-sm bg-slate-50 outline-violet-500 border-none outline-2" value={email} onChange={handleEmail} placeholder="Enter your email" />
+            <label className="font-semibold lg:text-[12px]">email</label>
+            <input type="email" className="p-4 lg:p-3 drop-shadow-sm bg-slate-50 outline-violet-500 border-none outline-2" value={email} onChange={handleEmail} placeholder="Enter your email" />
           </div>
           <div className="flex flex-col gap-2 text-left">
-            <label className="font-semibold">password</label>
-            <input type="password" className="p-4 drop-shadow-sm bg-slate-50 outline-violet-500 border-none outline-2" value={password} onChange={handlePassword} placeholder="Enter your password" />
+            <label className="font-semibold lg:text-[12px]">password</label>
+            <input type="password" className="p-4 lg:p-3 drop-shadow-sm bg-slate-50 outline-violet-500 border-none outline-2" value={password} onChange={handlePassword} placeholder="Enter your password" />
           </div>
           <p className="float-right text-[10px]">Already have account ? <Link to='/login' className="text-red-500">Login Now</Link></p>
           <div className="mt-10">
