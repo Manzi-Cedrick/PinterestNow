@@ -6,11 +6,13 @@ const AuthRoutes = require('./routes/AuthRoutes');
 const PinRouter = require('./routes/PinRouter');
 const ConvoRoute = require('./routes/ChatRoutes');
 const MessageRoute = require('./routes/MessageRoutes');
+const cors= require('cors')
 const connectionEstablish = require('./utilities/dbconnection');
 dotenv.config();
 connectionEstablish();
 app.use(express.json());
 app.use(bodyparser.urlencoded({extended:true}));
+app.use(cors())
 app.use('/v1/auth/user',AuthRoutes);
 app.use('/v1/board/pin',PinRouter);
 app.use('/v1/convo/chat',ConvoRoute);
