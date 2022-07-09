@@ -4,7 +4,7 @@ const AuthorizeUser = require('../MiddleWare/Authorize');
 const {AddNewPin,getPinAll,getPinEach,deletePin,UpdatePin} = require('../controllers/PinController')
 
 
-router.route('/addNewPin').post(AuthorizeUser,AddNewPin);
+router.route('/addNewPin').post(AddNewPin);
 router.route('/getallPins').get(AuthorizeUser,getPinAll);
 router.route('/getEachPin/:pin_id').get(AuthorizeUser,getPinEach);
 router.route('/deleteEachPin/:pin_id').delete(AuthorizeUser,deletePin);
