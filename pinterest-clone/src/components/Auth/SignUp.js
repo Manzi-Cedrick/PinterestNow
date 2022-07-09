@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { FaGooglePlay, FaPinterest } from 'react-icons/fa';
-import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
 function SignUp() {
   const [username, setUsername] = useState("")
