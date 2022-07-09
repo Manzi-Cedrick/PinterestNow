@@ -3,6 +3,7 @@ import './pic.css';
 import './data';
 import Data from './data';
 import CrazyLoader from './CrazyLoader';
+import Cookie from 'js-cookie'
 import { Link } from 'react-router-dom';
 function Pin() {
     const dummy_data = Data;
@@ -12,7 +13,8 @@ function Pin() {
         setLoader(true)
         async function getImageData(){
             const imageCount = 20;
-            const clientID = 'znkQoJ27tsjEq4lux_CqaQ1RU3e3vfDpr8TApPtyfg4';
+            // ie1rPYc1tALL5Z8GthqV4D1IKR22NkVnUFsZAj4cuiQ
+            const clientID = 'nYWoDYzL6JOt7_OB9yWFQn5dbJyzh3ZoNIOwVGxV_Ws';
             const data = await fetch(`https://api.unsplash.com/photos/random/?client_id=${clientID}&count=${imageCount}`)
             const Data_objects = await data.json();
             setobj(Data_objects);
@@ -26,14 +28,18 @@ function Pin() {
         
         const sendDataToMyBackend = async (img_obj) =>{
             var i=0;
+            const token = await Cookie.get('TokenData')
+            console.log(token)
             while(i < img_obj.length){
+                // console.log(img_obj[i].id)
                 await fetch('http://localhost:3500/v1/board/pin/addNewPin',{
-                    method : "POST",
-                    headers : {
-                        'Content-Type':'application/json'
+                method : "POST",
+                headers : {
+                    authorization : 'Bearer ' + token,
+                    'Content-Type':'application/json'
                 },
                 body : JSON.stringify({
-                    id: img_obj[i].id,
+                    // id: img_obj[i].id,
                     link : img_obj[i].urls.regular,
                     title : img_obj[i].alt_description,
                     description : img_obj[i].description,
@@ -42,8 +48,9 @@ function Pin() {
                     likes: img_obj[i].likes
                 })
             })
-            i++
+            i++;
         }
+        // return "Datasent";
     }
     return (
         <>
