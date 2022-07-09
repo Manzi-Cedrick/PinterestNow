@@ -16,12 +16,35 @@ function Pin() {
             const data = await fetch(`https://api.unsplash.com/photos/random/?client_id=${clientID}&count=${imageCount}`)
             const Data_objects = await data.json();
             setobj(Data_objects);
-            console.log(img_obj);
+            console.log(Data_objects);
+            sendDataToMyBackend(Data_objects);
             setLoader(false)
             return Data_objects;
         }
         getImageData();
-    },[]);
+        },[]);
+        
+        const sendDataToMyBackend = async (img_obj) =>{
+            var i=0;
+            while(i < img_obj.length){
+                await fetch('http://localhost:3500/v1/board/pin/addNewPin',{
+                    method : "POST",
+                    headers : {
+                        'Content-Type':'application/json'
+                },
+                body : JSON.stringify({
+                    id: img_obj[i].id,
+                    link : img_obj[i].urls.regular,
+                    title : img_obj[i].alt_description,
+                    description : img_obj[i].description,
+                    color : img_obj[i].color,
+                    alt_text : img_obj[i].alt_description,
+                    likes: img_obj[i].likes
+                })
+            })
+            i++
+        }
+    }
     return (
         <>
     {lazyloader ? <CrazyLoader/> : 
