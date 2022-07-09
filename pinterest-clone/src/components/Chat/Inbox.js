@@ -18,7 +18,7 @@ function Inbox(props) {
       setMessages(''); 
   }
   return (
-    <div className="chat-ui bg-white flex flex-col px-4 w-[30vw] h-[85vh] rounded-xl absolute top-[5em] right-[0%]">
+    <div className="chat-ui bg-white flex flex-col px-4 w-[30vw] rounded-xl absolute top-[5em] right-[0%]">
       <div className="flex justify-between pt-3">
         <div
           className="h-[8vh] w-[8vh]  flex justify-center place-items-center hover:bg-slate-100 hover:cursor-pointer rounded-full"
@@ -52,7 +52,7 @@ function Inbox(props) {
       />}
       </div>
       </div>
-      <div className="flex justify-between absolute bottom-2 pt-3">
+      <div className="flex justify-between bg-white absolute bottom-2 pt-3">
         <div className="h-[8vh] w-[8vh]  flex justify-center place-items-center hover:bg-slate-100 hover:cursor-pointer rounded-full">
           <FaPinterest className="text-[#808080cf] text-2xl" />
         </div>
