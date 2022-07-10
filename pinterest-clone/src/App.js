@@ -13,12 +13,12 @@ function App() {
     <div className="App">
     <BrowserRouter>
       <Routes>
+        <Route path='/' element={<Login/>}/>
         <Route path='/home' element={<HomeShow/>}></Route>
         <Route path='/pin/preview/:PinId' element={<Preview/>}/>
         <Route path='/addNew' element={<CreateNewPin/>}></Route>
         <Route path='/profile' element={<Account/>}/>
         <Route path='/signup' element={<SignUp/>}/>
-        <Route path='/' element={<Login/>}/>
         <Route path='/changepassword' element={<ChangePass/>}/>
         <Route path='/otppreset' element={<OTPcheck/>}/>
       </Routes> 
