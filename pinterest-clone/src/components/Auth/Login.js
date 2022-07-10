@@ -17,8 +17,6 @@ function Login() {
   }
   const FormDataSubmission = (event) => {
     event.preventDefault()
-    console.log(email)
-    console.log(password)
     const PostData = async ( ) => {
       try {
         const result = await fetch('http://localhost:3500/v1/auth/user/login',{
@@ -33,7 +31,7 @@ function Login() {
         })
         const data = await result.json();
         await Cookies.set("TokenData",data.token);
-        if (data.token) return navigate('/');
+        if (data.token) return navigate('/home');
       } catch (error) {
         console.log("The Error", error)
       }
