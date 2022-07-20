@@ -43,6 +43,12 @@ function Login() {
   return (
     <div className="h-screen w-screen overflow-auto ">
       <img src="https://wallpaperaccess.com/full/339387.jpg" alt="" className="lg:max-h-full lg:max-w-full w-full h-full fixed top-0 bottom-0 left-0 right-0" />
+      <div className="fixed w-[65vw]  h-screen float-left">
+        <div>
+          <p className="text-white text-[5.9em] p-5 font-black">Welcome at PinCode</p>
+          <p>  Welcome  </p>
+        </div>
+      </div>
       <div className="bg-white lg:rounded-lg px-20 drop-shadow-sm h-screen lg:max-h-[90vh] m-auto  lg:float-right lg:m-5 lg:max-w-[30vw] md:px-10">
         <div className="text-center pt-2 md:pb-8 pb-12">
           <i><FaPinterest className="text-[8em] md:text-[6em] m-auto " /></i>
