@@ -1,9 +1,12 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import { FaTrashAlt } from "react-icons/fa";
+import axios from "axios";
+import Cookie from "js-cookie";
 import "./chat.css";
 import Inbox from "./Inbox";
 function ChatUI() {
     const [showMessages, setMessages] = useState(false);
+    const [ConvoChats,setConvoChats] = useState([])
   const data = [
     {
       id: 1,
@@ -21,6 +24,21 @@ function ChatUI() {
       lastMessage: "Check my new pins they are amazing",
     },
   ];
+  const token = Cookie.get('TokenData');
+  useEffect(() => {   
+    const fetchPins = async () => {
+        const result = await fetch(`http://localhost:3500/v1/convo/chat/getChat`,{
+            method : "GET",
+            headers : {
+                authorization : 'Bearer ' + token,
+                'Content-Type':'application/json'
+            },
+        })
+        const data = await result.json();
+        setConvoChats(data.message);
+    }
+    fetchPins();
+  },[])
   return (
     <>
       {showMessages ? (
@@ -37,7 +55,7 @@ function ChatUI() {
             <button type="submit" className="opacity-0 "></button>
           </form>
           <ul className="px-2 flex-col gap-4">
-            {data.map((datanow, index) => (
+            {ConvoChats.map((datanow, index) => (
               <li
                 key={index}
                 className="user-suggests flex hover:cursor-pointer justify-between my-2 hover:bg-zinc-100 duration-500 origin-center py-2 px-2 rounded-xl"
