@@ -6,10 +6,11 @@ const lodash = require("lodash");
 const AddNewPin = async (req, res) => {
   try {
     const objbody = req.body
+    console.log(objbody.link)
     const NewPin = await PinData.create({
-      _id: objbody.id,
+      // id: objbody.id,
       user_pin_maker : req.user.id ,
-      link: objbody.link | "",
+      link: [objbody.link],
       title : objbody.title,
       description : objbody.description,
       dominant_color : objbody.dominant_color || objbody.color,
