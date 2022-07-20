@@ -66,7 +66,7 @@ function SignUp() {
             <label className="font-semibold lg:text-[12px]">password</label>
             <input type="password" className="p-4 lg:p-3 drop-shadow-sm bg-slate-50 outline-violet-500 border-none outline-2" value={password} onChange={handlePassword} placeholder="Enter your password" />
           </div>
-          <p className="float-right text-[10px]">Already have account ? <Link to='/login' className="text-red-500">Login Now</Link></p>
+          <p className="float-right text-[10px]">Already have account ? <Link to='/' className="text-red-500">Login Now</Link></p>
           <div className="mt-10">
             <button type="submit" className="hover:bg-white hover:text-red-500 border-solid border-red-500 hover:rounded-lg border-2 duration-700  p-5 bg-red-600 w-full h-full px-20 flex justify-center gap-2 text-white font-bold">
               <FaPinterest className='mt-1' />Signup
