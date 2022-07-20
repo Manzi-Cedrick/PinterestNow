@@ -1,13 +1,34 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import NavBar from "../../NavBar";
 import { FaDownload, FaEllipsisH, FaHeart, FaPinterest } from "react-icons/fa";
 import Picker, { SKIN_TONE_MEDIUM_DARK } from "emoji-picker-react";
+import { useParams } from "react-router-dom";
+import Cookies from "js-cookie";
 
 function Preview() {
   const [chosenEmoji, setChosenEmoji] = useState(null);
   const [showEmojis, setEmojis] = useState(false);
   const [messageText, setMessages] = useState("");
+  const [PinDetail, setPinDetail] = useState({});
   const [allmessage, setallMessages] = useState("");
+  const params = useParams()
+  const pinId = params.PinId;
+    const token = Cookies.get('TokenData')
+  useEffect(() => {
+    const getEachPinData = async ()=>{
+      const result = await fetch(`http://localhost:3500/v1/board/pin/getEachPin/${pinId}`,{
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+          authorization : 'Bearer ' + token,
+        }
+      })
+      const data = await result.json();
+      setPinDetail(data.Pin);
+    }
+    getEachPinData();
+  }, [])
+  console.log("PinDetaul",PinDetail)
   const onEmojiClick = (event, emojiObject) => {
     setChosenEmoji(emojiObject);
   };
@@ -25,8 +46,8 @@ function Preview() {
         <div className="flex p-1 ">
           <div className="max-w-[30vw]  flex overflow-hidden flex-col justify-center place-items-center rounded-xl bg-slate-200">
             <img
-              src="https://images.unsplash.com/photo-1654596487129-09642f47b397?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzMzU2Mzh8MHwxfGFsbHwxMHx8fHx8fDJ8fDE2NTQ2ODM3Njk&ixlib=rb-1.2.1&q=80&w=1080"
-              alt=""
+              src={`${PinDetail.link.map((linkurl)=>(linkurl.regular))}`}
+              alt={"No Imag"}
             />
           </div>
         </div>
@@ -43,7 +64,7 @@ function Preview() {
             </div>
           </div>
           <div className="text-5xl font-bold text-left">
-            <span>Adobe Photoshop Redesign</span>
+            <span>{PinDetail.color}</span>
           </div>
           <div className="flex justify-between py-4">
             <div className="flex gap-2 ">
@@ -67,7 +88,7 @@ function Preview() {
               </p>
               <span className="font-semibold px-1">Hello how are you??</span>
             </div>
-            <div className="right-2 w-full flex place-items-end float-right">
+            <div className="right-2 w-full flex place-items-end ">
               {showEmojis && (
                 <Picker
                   onEmojiClick={onEmojiClick}
@@ -80,14 +101,14 @@ function Preview() {
               )}
             </div>
           </div>
-          <div className="flex justify-between absolute bottom-2 pt-3">
+          <div className="flex bg-white justify-between absolute bottom-2 pt-3">
             <div className="h-[8vh] w-[8vh]  flex justify-center place-items-center hover:bg-slate-100 hover:cursor-pointer rounded-full">
               <FaPinterest className="text-[#808080cf] text-2xl" />
             </div>
             <form onSubmit={handleSubmit}>
               <input
                 type="text"
-                className="pl-4 rounded-full mx-2 w-[25vw] py-3 outline-4 border-none focus:outline-blue-500 bg-zinc-100"
+                className="rounded-full mx-2 w-[25vw] py-3 outline-4 border-none focus:outline-blue-500 bg-zinc-100"
                 placeholder="Search by name or email"
                 onChange={handleMessage}
                 //   value={chosenEmoji.emoji}
